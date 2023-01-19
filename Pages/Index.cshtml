@@ -1,0 +1,33 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form method="post">
+    <div align="center">
+        <div class="w-50" style="background-color: aqua">
+            @if (Model.isOK.HasValue && Model.isOK.Value)
+            {
+            <div class="p-3 mb-2 bg-success text-white">Hello @Model.UserName!</div>
+            }
+            else if (Model.isOK.HasValue && !Model.isOK.Value)
+            {
+            <div class="p-3 mb-2 bg-danger text-white">Username or password incorrect</div>
+            }
+            <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" name="inputEmail3">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" name="inputPassword3">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
